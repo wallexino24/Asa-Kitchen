@@ -1,0 +1,876 @@
+/* ============================================================
+   ÁṢÀ KITCHEN — asa.css
+
+   COLOUR PALETTE:
+   --black:     #0D0D0D  (page background)
+   --dark:      #1A1200  (section backgrounds)
+   --gold:      #C8860A  (primary accent)
+   --gold-lt:   #E0A82E  (hover gold)
+   --parchment: #E8D5A3  (body text on dark)
+   --red:       #7A2D1E  (featured card accent)
+   --offwhite:  #F5F0E8  (headings, light bg text)
+   --muted:     #9A8F7A  (labels, captions)
+
+   FONTS (loaded via Google Fonts in asa-resturant.html):
+   Display  → Playfair Display
+   Body     → DM Sans
+   Mono     → DM Mono
+============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:     #0D0D0D;
+  --dark:      #1A1200;
+  --gold:      #C8860A;
+  --gold-lt:   #E0A82E;
+  --parchment: #E8D5A3;
+  --red:       #7A2D1E;
+  --offwhite:  #F5F0E8;
+  --muted:     #9A8F7A;
+  --display:   'Playfair Display', Georgia, serif;
+  --body:      'DM Sans', system-ui, sans-serif;
+  --mono:      'DM Mono', monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--body);
+  background: var(--black);
+  color: var(--parchment);
+  overflow-x: hidden;
+  padding-top: 50px;
+}
+
+img { display: block; width: 100%; height: 100%; object-fit: cover; }
+a   { text-decoration: none; color: inherit; }
+
+
+/* ============================================================
+   REUSABLE UTILITIES
+============================================================ */
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-eyebrow {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+.section-eyebrow.light { color: var(--gold-lt); }
+
+.section-title {
+  font-family: var(--display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--black);
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+.section-title.light { color: var(--offwhite); }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  font-family: var(--body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.85rem 2rem;
+  border-radius: 2px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  border: none;
+}
+.btn-gold { background: var(--gold); color: var(--black); }
+.btn-gold:hover {
+  background: var(--gold-lt);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(200,134,10,0.35);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--offwhite);
+  border: 1px solid rgba(245,240,232,0.4);
+}
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+
+/* ============================================================
+   NAVIGATION
+============================================================ */
+
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 3rem;
+  transition: background 0.4s ease, padding 0.3s ease;
+}
+.nav.scrolled {
+  background: rgba(13,13,13,0.96);
+  backdrop-filter: blur(12px);
+  padding: 0.85rem 3rem;
+  border-bottom: 1px solid rgba(200,134,10,0.15);
+}
+.nav-logo {
+  font-family: var(--display);
+  font-size: 1.35rem;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--offwhite);
+}
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+  align-items: center;
+}
+.nav-links a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--parchment);
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-cta {
+  background: var(--gold) !important;
+  color: var(--black) !important;
+  padding: 0.55rem 1.3rem;
+  border-radius: 2px;
+  font-weight: 600 !important;
+}
+.nav-cta:hover { background: var(--gold-lt) !important; }
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--offwhite);
+  transition: all 0.3s;
+}
+
+/* Mobile menu overlay */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 50%;
+  width: 100%;
+  background: var(--black);
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  transform: scale(0);
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+}
+.mobile-menu.open { display: flex; transform: scale(1.0); }
+
+.mobile-link {
+  font-family: var(--display);
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--offwhite);
+  transition: color 0.3s;
+}
+.mobile-link:hover { color: var(--gold); border-bottom: 2px solid var(--offwhite); transition: 0.5s ease; }
+
+
+/* ============================================================
+   HERO
+   Background image is set here. Replace the URL inside url('...')
+   with your own image path or URL.
+
+   CURRENT placeholder:
+   https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1600&q=85
+
+   WHAT TO SEARCH FOR: "African food fine dining dark" on Unsplash
+   or use a local file: url('images/hero.jpg')
+============================================================ */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 650px;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 8vh;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  /* ↓ REPLACE THIS IMAGE URL with your own hero photo */
+  background-image: url('resturant-pictures/hero.png');
+  background-size: cover;
+  background-position: center;
+  animation: slowZoom 18s ease-in-out infinite alternate;
+}
+
+/*
+  HERO VIDEO ALTERNATIVE:
+  If you want a video background instead of an image, delete .hero-bg above,
+  then add this CSS and replace the <div class="hero-bg"></div> in index.html with:
+
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="YOUR-VIDEO.mp4" type="video/mp4" />
+  </video>
+
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  Good free video sources:
+  → pexels.com/videos — search "restaurant kitchen fire" or "food cooking cinematic"
+  → mixkit.co — search "restaurant" (free HD loops)
+*/
+
+@keyframes slowZoom {
+  from { transform: scale(1); }
+  to   { transform: scale(1.06); }
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(13,13,13,0.3) 0%,
+    rgba(13,13,13,0.15) 35%,
+    rgba(13,13,13,0.7) 70%,
+    rgba(13,13,13,0.95) 100%
+  );
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 5vw;
+  max-width: 780px;
+}
+.hero-eyebrow {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.25rem;
+  text-shadow: 0 2px 0 black;
+  backdrop-filter: blur(10px);
+}
+.hero-title {
+  font-family: var(--display);
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 900;
+  color: var(--offwhite);
+  line-height: 1.05;
+  margin-bottom: 1.25rem;
+}
+.hero-title em { font-style: italic; color: var(--gold); }
+.hero-sub {
+  font-size: 1rem;
+  color: var(--parchment);
+  line-height: 1.7;
+  max-width: 520px;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.hero-badge {
+  position: absolute;
+  right: 4vw;
+  bottom: 10vh;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+.badge-mono {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+}
+.badge-label {
+  font-family: var(--display);
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--parchment);
+}
+.hero-scroll-hint {
+  position: absolute;
+  left: 5vw;
+  bottom: 3vh;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.hero-scroll-hint span {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.scroll-line {
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; width: 40px; }
+  50%       { opacity: 1;   width: 60px; }
+}
+
+
+/* ============================================================
+   STATS BAND
+============================================================ */
+
+.stats-band {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--dark);
+  border-top: 1px solid rgba(200,134,10,0.2);
+  border-bottom: 1px solid rgba(200,134,10,0.2);
+  padding: 2.5rem 2rem;
+  flex-wrap: wrap;
+  gap: 0;
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0 3rem;
+}
+.stat-num {
+  font-family: var(--display);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+.stat-label {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.stat-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(200,134,10,0.25);
+}
+
+
+/* ============================================================
+   OUR STORY
+============================================================ */
+
+.story {
+  background: var(--offwhite);
+  padding: 7rem 2rem;
+}
+.story-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+.story-text p {
+  color: #3a3228;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+  font-size: 0.975rem;
+}
+.story-visual {
+  position: relative;
+  height: 520px;
+}
+.story-img-main {
+  position: absolute;
+  top: 0; left: 0;
+  width: 78%;
+  height: 80%;
+  overflow: hidden;
+  border-radius: 2px;
+}
+.story-img-accent {
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 52%;
+  height: 45%;
+  overflow: hidden;
+  border-radius: 2px;
+  border: 4px solid var(--offwhite);
+}
+.story-tag {
+  position: absolute;
+  bottom: 14%;
+  left: 0;
+  background: var(--gold);
+  color: var(--black);
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.tag-mono {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.tag-hours {
+  font-family: var(--display);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+
+/* ============================================================
+   MENU
+============================================================ */
+
+.menu-section {
+  background: var(--dark);
+  padding: 7rem 2rem;
+}
+.menu-section .section-title { margin-bottom: 3rem; }
+
+.menu-tabs {
+  display: flex;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid rgba(200,134,10,0.2);
+  flex-wrap: wrap;
+}
+.tab-btn {
+  font-family: var(--body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--muted);
+  background: none;
+  border: none;
+  padding: 0.85rem 1.75rem;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: all 0.25s;
+}
+.tab-btn:hover   { color: var(--parchment); }
+.tab-btn.active  { color: var(--gold); border-bottom-color: var(--gold); }
+
+.menu-tab-panel         { display: none; }
+.menu-tab-panel.active  { display: block; }
+
+.menu-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  gap: 1rem;
+}
+.menu-item:nth-child(odd)  { padding-right: 3rem; }
+.menu-item:nth-child(even) {
+  padding-left: 3rem;
+  border-left: 1px solid rgba(255,255,255,0.06);
+}
+.menu-item-info h3 {
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--offwhite);
+  margin-bottom: 0.35rem;
+}
+.menu-item-info p {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+.menu-tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(200,134,10,0.4);
+  padding: 0.2rem 0.5rem;
+  border-radius: 1px;
+}
+.menu-price {
+  font-family: var(--display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gold);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+
+/* ============================================================
+   GALLERY
+============================================================ */
+
+.gallery-section {
+  background: var(--offwhite);
+  padding: 7rem 2rem;
+}
+.gallery-section .section-title   { color: var(--black); margin-bottom: 3rem; }
+.gallery-section .section-eyebrow { color: var(--gold); }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 240px 240px;
+  gap: 12px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.gallery-item          { overflow: hidden; border-radius: 2px; background: #ccc; }
+.gallery-item img      { transition: transform 0.6s ease; }
+.gallery-item:hover img { transform: scale(1.06); }
+.g-tall { grid-row: span 2; }
+.g-wide { grid-column: span 2; }
+
+/*
+  GALLERY VIDEO:
+  .gallery-item video also gets object-fit: cover by default from the img rule above.
+  Add this if your video needs explicit sizing:
+
+  .gallery-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+*/
+
+
+/* ============================================================
+   TESTIMONIALS
+============================================================ */
+
+.testimonials { background: var(--black); padding: 6rem 2rem; }
+.testimonials .section-eyebrow { margin-bottom: 3rem; text-align: center; }
+
+.testimonial-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+.testimonial-card {
+  background: var(--dark);
+  border: 1px solid rgba(200,134,10,0.1);
+  padding: 2rem;
+  border-radius: 2px;
+}
+.featured-testimonial {
+  background: var(--red);
+  border-color: transparent;
+  padding: 2.5rem;
+}
+.stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 1rem; }
+.testimonial-card p {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--parchment);
+  margin-bottom: 1.25rem;
+}
+.featured-testimonial p { color: var(--offwhite); font-size: 1.05rem; }
+.testimonial-name {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.featured-testimonial .testimonial-name { color: rgba(245,240,232,0.6); }
+
+
+/* ============================================================
+   RESERVATION
+============================================================ */
+
+.reserve-section { background: var(--dark); padding: 7rem 2rem; }
+.reserve-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 6rem;
+  align-items: flex-start;
+}
+.reserve-text p {
+  color: var(--parchment);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+.reserve-contact { display: flex; flex-direction: column; gap: 0.75rem; }
+.contact-line {
+  font-size: 0.875rem;
+  color: var(--parchment);
+  opacity: 0.7;
+  transition: color 0.2s, opacity 0.2s;
+}
+.contact-line:hover { color: var(--gold); opacity: 1; }
+
+.reserve-form { display: flex; flex-direction: column; gap: 1rem; }
+.form-row     { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group   { display: flex; flex-direction: column; gap: 0.4rem; }
+.form-group.full { grid-column: span 2; }
+
+.form-group label {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(200,134,10,0.2);
+  border-radius: 2px;
+  padding: 0.8rem 1rem;
+  color: var(--offwhite);
+  font-family: var(--body);
+  font-size: 0.875rem;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--muted); }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--gold); }
+.form-group select option  { background: #1a1200; color: var(--parchment); }
+.form-group textarea       { resize: vertical; }
+
+.full-btn { width: 100%; text-align: center; padding: 1rem; font-size: 0.9rem; }
+
+.form-success {
+  display: none;
+  background: rgba(200,134,10,0.15);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 1rem;
+  border-radius: 2px;
+  font-size: 0.875rem;
+  text-align: center;
+}
+.form-success.show { display: block; }
+
+
+/* ============================================================
+   FOOTER
+============================================================ */
+
+.footer {
+  background: #080800;
+  border-top: 1px solid rgba(200,134,10,0.15);
+  padding: 5rem 2rem 2rem;
+}
+.footer-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.footer-logo {
+  display: block;
+  font-family: var(--display);
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--offwhite);
+  margin-bottom: 0.75rem;
+}
+.footer-brand p {
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.footer-social { display: flex; gap: 1rem; }
+.footer-social a {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 0.4rem 0.65rem;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+.footer-social a:hover { color: var(--gold); border-color: var(--gold); }
+
+.footer-col h4 {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.25rem;
+}
+.footer-col p,
+.footer-col a {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 2;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--parchment); }
+
+.footer-bottom {
+  max-width: 1160px;
+  margin: 1.5rem auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: rgba(154,143,122,0.5);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.footer-credit strong { color: var(--gold); }
+.footer-credit a { color: var(--gold); opacity: 0.7; }
+.footer-credit a:hover { opacity: 1; }
+
+
+/* ============================================================
+   SCROLL FADE-IN ANIMATION
+============================================================ */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.visible { opacity: 1; transform: none; }
+
+
+/* ============================================================
+   RESPONSIVE — TABLET (max 1024px)
+============================================================ */
+
+@media (max-width: 1024px) {
+  .story-inner           { grid-template-columns: 1fr; gap: 3rem; }
+  .story-visual          { height: 420px; }
+  .reserve-inner         { grid-template-columns: 1fr; gap: 3rem; }
+  .testimonial-grid      { grid-template-columns: 1fr; max-width: 560px; }
+  .footer-inner          { grid-template-columns: 1fr 1fr; }
+  .gallery-grid          { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+  .g-tall                { grid-row: span 1; }
+  .g-wide                { grid-column: span 2; }
+}
+
+
+/* ============================================================
+   RESPONSIVE — MOBILE (max 768px)
+============================================================ */
+
+@media (max-width: 768px) {
+
+  .nav           { padding: 1rem 1.5rem; }
+  .nav.scrolled  { padding: 0.75rem 1.5rem; }
+  .nav-links     { display: none; }
+  .hero-eyebrow { font-size: 10px; color: var(--offwhite); }
+  .hamburger     { display: flex; }
+
+  .stats-band    { gap: 1.5rem; }
+  .stat          { padding: 0.5rem 1rem; }
+  .stat-divider  { display: none; }
+
+  .menu-items                    { grid-template-columns: 1fr; }
+  .menu-item:nth-child(odd)      { padding-right: 0; }
+  .menu-item:nth-child(even)     { padding-left: 0; border-left: none; }
+
+  .gallery-grid  { grid-template-columns: 1fr 1fr; padding: 0 1rem; }
+  .g-wide        { grid-column: span 2; }
+
+  .form-row      { grid-template-columns: 1fr; }
+  .footer-inner  { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+
+
+/* ============================================================
+   RESPONSIVE — SMALL MOBILE (max 480px)
+============================================================ */
+
+@media (max-width: 480px) {
+  .hero-title    { font-size: clamp(2.5rem, 10vw, 3.5rem); }
+  .hero-content  { padding: 0 1.5rem; }
+  .gallery-grid  { grid-template-columns: 1fr; }
+  .g-wide        { grid-column: span 1; }
+  .g-tall        { grid-row: span 1; }
+}
+
+
+/* ============================================================
+   ACCESSIBILITY — Reduced motion
+============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg    { animation: none; }
+  .fade-in    { transition: none; }
+  .scroll-line { animation: none; }
+}

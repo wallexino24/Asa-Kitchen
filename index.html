@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Áṣà Kitchen — Afro-Fusion Dining</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="asa.css" />
+    <!-- EmailJS SDK — must load before script.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+</head>
+<body>
+
+  <!-- =============================================
+       NAV
+  ============================================= -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-logo">Áṣà Kitchen</a>
+    <ul class="nav-links">
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#reserve" class="nav-cta">Reserve a Table</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#story" class="mobile-link">Our Story</a>
+    <a href="#menu" class="mobile-link">Menu</a>
+    <a href="#gallery" class="mobile-link">Gallery</a>
+    <a href="#reserve" class="mobile-link">Reserve a Table</a>
+  </div>
+
+
+  <!-- =============================================
+       HERO
+       IMAGE: A stunning food hero photo — wide, dark, atmospheric.
+       Recommended search: "African food fine dining hero" or "jollof rice plated dark background"
+       Free sources: Unsplash.com / Pexels.com
+       Ideal size: 1600x900px or wider
+       Replace the src in style.css under .hero-bg { background-image: url('YOUR-IMAGE-HERE') }
+
+       VIDEO (optional): A short 5–10s looping restaurant ambiance clip
+       Recommended search: "restaurant ambiance loop" on Pexels Videos (free)
+       If you add a video, replace the .hero-bg div with a <video> tag (autoplay muted loop)
+  ============================================= -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">Lagos · London · Anywhere Fine Food Is Served</span>
+      <h1 class="hero-title">
+        Where African<br /><em>roots</em> meet<br />modern fire.
+      </h1>
+      <p class="hero-sub">An Afro-fusion dining experience built on bold spices, honest cooking, and the warmth of home.</p>
+      <div class="hero-actions">
+        <a href="#reserve" class="btn btn-gold">Reserve Your Table</a>
+        <a href="#menu" class="btn btn-ghost">View the Menu</a>
+      </div>
+    </div>
+    <div class="hero-badge">
+      <span class="badge-mono">EST. 2019</span>
+      <span class="badge-label">Fine Dining</span>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       STATS BAND
+  ============================================= -->
+  <div class="stats-band">
+    <div class="stat">
+      <span class="stat-num">4.9</span>
+      <span class="stat-label">Google Rating</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">2,400+</span>
+      <span class="stat-label">Guests Served</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">38</span>
+      <span class="stat-label">Signature Dishes</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">6 yrs</span>
+      <span class="stat-label">Of Bold Cooking</span>
+    </div>
+  </div>
+
+
+  <!-- =============================================
+       OUR STORY
+       IMAGE 1 (Main large photo): Chef cooking or a beautifully plated dish
+       Search: "African chef cooking restaurant" or "Nigerian food plated elegant"
+       Ideal size: 700x600px
+       Replace: <img src="YOUR-IMAGE-1-HERE" alt="..." />
+
+       IMAGE 2 (Accent smaller photo overlapping): Restaurant interior or another food shot
+       Search: "restaurant interior warm lighting" or "fine dining table setting"
+       Ideal size: 400x350px
+       Replace: <img src="YOUR-IMAGE-2-HERE" alt="..." />
+  ============================================= -->
+  <section class="story" id="story">
+    <div class="story-inner">
+      <div class="story-text">
+        <span class="section-eyebrow">Our Story</span>
+        <h2 class="section-title">Cooking with memory. Serving with pride.</h2>
+        <p>Áṣà Kitchen was born from a simple belief: that African food deserves the same reverence, presentation, and setting as any world cuisine. Our founder, Chef Tomi Adeyemi, grew up watching her grandmother cook over open fire in Ibadan — every meal a ritual, every spice a story.</p>
+        <p>Today, we bring that memory to the table with modern technique, seasonal sourcing, and an uncompromising respect for flavour. Every dish on our menu is a conversation between the old world and the new.</p>
+        <a href="#reserve" class="btn btn-gold">Book an Experience</a>
+      </div>
+      <div class="story-visual">
+        <div class="story-img-main">
+          <!-- IMAGE 1 -->
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="Beautifully plated dish" />
+        </div>
+        <div class="story-img-accent">
+          <!-- IMAGE 2 -->
+          <img src="resturant-pictures/ourstory.jpg" alt="Chef at work" />
+        </div>
+        <div class="story-tag">
+          <span class="tag-mono">Open Today</span>
+          <span class="tag-hours">12pm — 10pm</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       MENU
+  ============================================= -->
+  <section class="menu-section" id="menu">
+    <div class="container">
+      <span class="section-eyebrow light">The Menu</span>
+      <h2 class="section-title light">Crafted with intention.<br />Eaten with joy.</h2>
+
+      <div class="menu-tabs" role="tablist">
+        <button class="tab-btn active" data-tab="starters" role="tab">Starters</button>
+        <button class="tab-btn" data-tab="mains" role="tab">Mains</button>
+        <button class="tab-btn" data-tab="drinks" role="tab">Drinks</button>
+        <button class="tab-btn" data-tab="desserts" role="tab">Desserts</button>
+      </div>
+
+      <div class="menu-grid" id="menuGrid">
+
+        <!-- STARTERS -->
+        <div class="menu-tab-panel active" data-panel="starters">
+          <div class="menu-items">
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <h3>Suya Spring Rolls</h3>
+                <p>Spiced beef suya wrapped in crispy pastry, served with tamarind dip</p>
+                <span class="menu-tag">Chef's Pick</span>
+              </div>
+              <span class="menu-price">₦4,500</span>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <h3>Pepper Soup Consommé</h3>
+                <p>A refined take on the classic — clear broth, goat meat, uziza leaf oil</p>
+              </div>
+              <span class="menu-price">₦3,800</span>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <h3>Akara Bites</h3>
+                <p>Crispy black-eyed pea fritters, smoked tomato aioli, pickled onion</p>
+              </div>
+              <span class="menu-price">₦3,200</span>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <h3>Kuli-Kuli Salad</h3>
+                <p>Mixed greens, groundnut crumble, garden egg, honey-lime dressing</p>
+                <span class="menu-tag">Vegetarian</span>
+              </div>
+              <span class="menu-price">₦3,500</span>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <h3>Smoked Catfish Bruschetta</h3>
+                <p>Sourdough, smoked catfish pâté, fried plantain crisps, scotch bonnet jam</p>
+                <span class="menu-tag">Seasonal</span>
+              </div>
+              <span class="menu-price">₦5,200</span>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <h3>Boli & Eja Board</h3>
+                <p>Roasted plantain, peppered fish, garden egg sauce — for the table</p>
+              </div>
+              <span class="menu-price">₦6,000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- MAINS -->
+        <div class="menu-tab-panel" data-panel="mains">
+          <div class="menu-items">
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <h3>Oxtail Egusi Risotto</h3>
+                <p>Slow-braised oxtail, egusi-infused arborio, bitter leaf gremolata</p>
+                <span class="menu-tag">Signature</span>
+              </div>
+              <span class="menu-price">₦18,500</span>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <h3>Jollof Paella</h3>
+                <p>Party jollof technique, mixed seafood, chorizo, smoky tomato base</p>
+                <span class="menu-tag">Chef's Pick</span>
+              </div>
+              <span class="menu-price">₦16,000</span>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <h3>Goat Meat Tagine</h3>
+                <p>West African spices, preserved lemon, served with tuwo shinkafa</p>
+              </div>
+              <span class="menu-price">₦15,500</span>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <h3>Whole Tilapia, Àṣà Style</h3>
+                <p>Whole grilled tilapia, stewed pepper sauce, fried plantain, coconut rice</p>
+                <span class="menu-tag">Seasonal</span>
+              </div>
+              <span class="menu-price">₦14,000</span>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <h3>Pounded Yam Gnocchi</h3>
+                <p>Housemade pounded yam dumplings, palm butter sauce, mushrooms</p>
+                <span class="menu-tag">Vegetarian</span>
+              </div>
+              <span class="menu-price">₦12,500</span>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <h3>Suya-Crusted Lamb Chop</h3>
+                <p>Spiced lamb, groundnut sauce, garden egg purée, crispy yam strings</p>
+                <span class="menu-tag">Signature</span>
+              </div>
+              <span class="menu-price">₦22,000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- DRINKS -->
+        <div class="menu-tab-panel" data-panel="drinks">
+          <div class="menu-items">
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <h3>Zobo Spritz</h3>
+                <p>House hibiscus tea, sparkling water, fresh ginger, lime, mint</p>
+                <span class="menu-tag">Non-Alcoholic</span>
+              </div>
+              <span class="menu-price">₦2,800</span>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <h3>Palm Wine Mojito</h3>
+                <p>Fresh palm wine, rum, lime, sugar cane, crushed ice</p>
+              </div>
+              <span class="menu-price">₦4,500</span>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <h3>Tamarind Margarita</h3>
+                <p>Tamarind concentrate, tequila, triple sec, smoked salt rim</p>
+                <span class="menu-tag">Bestseller</span>
+              </div>
+              <span class="menu-price">₦5,200</span>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <h3>Chapman Classic</h3>
+                <p>Our elevated Chapman — grenadine, Angostura, cucumber, citrus</p>
+                <span class="menu-tag">Non-Alcoholic</span>
+              </div>
+              <span class="menu-price">₦2,500</span>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <h3>Kunu Aya Shake</h3>
+                <p>Tiger nut milk, dates, cinnamon, vanilla — served chilled</p>
+                <span class="menu-tag">Non-Alcoholic</span>
+              </div>
+              <span class="menu-price">₦3,000</span>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <h3>Àṣà Old Fashioned</h3>
+                <p>Bourbon, kolanut bitters, palm sugar cube, orange peel</p>
+                <span class="menu-tag">Signature</span>
+              </div>
+              <span class="menu-price">₦6,500</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- DESSERTS -->
+        <div class="menu-tab-panel" data-panel="desserts">
+          <div class="menu-items">
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <h3>Puff Puff Beignets</h3>
+                <p>Warm spiced doughnuts, cardamom custard, caramel drizzle</p>
+                <span class="menu-tag">Chef's Pick</span>
+              </div>
+              <span class="menu-price">₦4,000</span>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <h3>Chin-Chin Cheesecake</h3>
+                <p>Chin-chin crust, vanilla cream cheese, passion fruit curd</p>
+                <span class="menu-tag">Signature</span>
+              </div>
+              <span class="menu-price">₦5,500</span>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <h3>Chocolate Agbalumo Tart</h3>
+                <p>Dark chocolate shell, agbalumo curd, cocoa nib praline</p>
+                <span class="menu-tag">Seasonal</span>
+              </div>
+              <span class="menu-price">₦5,000</span>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <h3>Mango Panna Cotta</h3>
+                <p>Coconut cream set custard, Alphonso mango, lemongrass syrup</p>
+              </div>
+              <span class="menu-price">₦4,500</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /menu-grid -->
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       GALLERY
+       You need 6 photos total. Mix of food shots and interior/ambiance.
+       Recommended searches on Unsplash.com or Pexels.com:
+         - "plated food dark background"
+         - "African food photography"
+         - "restaurant interior warm"
+         - "fine dining table"
+         - "Nigerian food styled"
+         - "chef plating dish"
+
+       Replace each src="..." below with your chosen image URLs or local file paths.
+       Ideal sizes: 600x400px (regular), 600x800px (tall), 800x400px (wide)
+
+       VIDEO IDEA: Replace one .gallery-item with a short looping video clip
+       Search "restaurant kitchen cooking loop" on Pexels Videos
+       Example swap:
+         <div class="gallery-item g-wide">
+           <video autoplay muted loop playsinline>
+             <source src="YOUR-VIDEO.mp4" type="video/mp4" />
+           </video>
+         </div>
+  ============================================= -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <span class="section-eyebrow">The Experience</span>
+      <h2 class="section-title">Every plate tells a story.</h2>
+    </div>
+    <div class="gallery-grid">
+
+      <!-- GALLERY IMAGE 1 (tall left) — Food or chef photo -->
+      <div class="gallery-item g-tall">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80" alt="Plated dish" />
+      </div>
+
+      <!-- GALLERY IMAGE 2 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=80" alt="Food presentation" />
+      </div>
+
+      <!-- GALLERY IMAGE 3 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80" alt="Restaurant dish" />
+      </div>
+
+      <!-- GALLERY IMAGE 4 (wide — great for interior shot or video) -->
+      <div class="gallery-item g-wide">
+        <!--
+          OPTIONAL VIDEO: Replace this <img> with a <video> tag like this:
+          <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
+            <source src="YOUR-VIDEO-FILE.mp4" type="video/mp4" />
+          </video>
+          Search "restaurant ambiance video loop" on pexels.com/videos (free)
+        -->
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80" alt="Restaurant interior" />
+      </div>
+
+      <!-- GALLERY IMAGE 5 (tall right) -->
+      <div class="gallery-item g-tall">
+        <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=600&q=80" alt="Breakfast plate" />
+      </div>
+
+      <!-- GALLERY IMAGE 6 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=80" alt="Colorful dish" />
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       TESTIMONIALS
+  ============================================= -->
+  <section class="testimonials">
+    <div class="container">
+      <span class="section-eyebrow light">What Guests Say</span>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"The Oxtail Egusi Risotto changed my life. I didn't know food could feel like a memory I'd never had."</p>
+          <span class="testimonial-name">— Amara O., Lagos</span>
+        </div>
+        <div class="testimonial-card featured-testimonial">
+          <div class="stars">★★★★★</div>
+          <p>"We flew in from London for a wedding and made sure to book a night here. Worth every penny, every mile, every minute."</p>
+          <span class="testimonial-name">— David & Funke T., London</span>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"The ambiance, the service, the flavours. Àṣà Kitchen is the restaurant Ibadan has always deserved."</p>
+          <span class="testimonial-name">— Bisi A., Ibadan</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       RESERVATION FORM
+  ============================================= -->
+  <section class="reserve-section" id="reserve">
+    <div class="reserve-inner">
+      <div class="reserve-text">
+        <span class="section-eyebrow light">Reservations</span>
+        <h2 class="section-title light">Your table is waiting.</h2>
+        <p>We take reservations for lunch (12pm–3pm) and dinner (6pm–10pm), Tuesday through Sunday. For private dining and events, use the notes field or call us directly.</p>
+        <div class="reserve-contact">
+          <a href="tel:+2348012345678" class="contact-line">📞 +234 801 234 5678</a>
+          <a href="mailto:hello@asakitchen.com" class="contact-line">✉ hello@asakitchen.com</a>
+          <span class="contact-line">📍 Plot 14, Victoria Island, Lagos</span>
+        </div>
+      </div>
+      <form class="reserve-form" id="reserveForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" placeholder="Temi" required />
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" placeholder="Adeyemi" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="temi@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" placeholder="+234 800 000 0000" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" id="date" required />
+          </div>
+          <div class="form-group">
+            <label for="time">Time</label>
+            <select id="time" required>
+              <option value="">Select time</option>
+              <option>12:00 PM</option>
+              <option>12:30 PM</option>
+              <option>1:00 PM</option>
+              <option>1:30 PM</option>
+              <option>2:00 PM</option>
+              <option>6:00 PM</option>
+              <option>6:30 PM</option>
+              <option>7:00 PM</option>
+              <option>7:30 PM</option>
+              <option>8:00 PM</option>
+              <option>8:30 PM</option>
+              <option>9:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="guests">Number of Guests</label>
+            <select id="guests" required>
+              <option value="">Select</option>
+              <option>1 guest</option>
+              <option>2 guests</option>
+              <option>3 guests</option>
+              <option>4 guests</option>
+              <option>5 guests</option>
+              <option>6 guests</option>
+              <option>7+ guests (please call)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="occasion">Occasion (optional)</label>
+            <select id="occasion">
+              <option value="">None</option>
+              <option>Birthday</option>
+              <option>Anniversary</option>
+              <option>Business Dinner</option>
+              <option>Proposal</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group full">
+          <label for="notes">Special Requests</label>
+          <textarea id="notes" rows="3" placeholder="Dietary requirements, seating preferences, anything we should know…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold full-btn">Confirm Reservation</button>
+        <div class="form-success" id="formSuccess">
+          ✓ Reservation received! We'll confirm within 2 hours.
+        </div>
+      </form>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       FOOTER
+  ============================================= -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">Áṣà Kitchen</span>
+        <p>Afro-fusion dining with roots,<br />served with fire.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="Twitter">X</a>
+          <a href="#" aria-label="WhatsApp">WA</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Visit Us</h4>
+        <p>Plot 14, Adeola Odeku Street<br />Victoria Island, Lagos</p>
+        <p>Tue – Sun<br />12pm – 10pm</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <a href="#story">Our Story</a>
+        <a href="#menu">Menu</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reserve">Reservations</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+2348012345678">+234 801 234 5678</a>
+        <a href="mailto:hello@asakitchen.com">hello@asakitchen.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Áṣà Kitchen. All rights reserved.</span>
+      <span class="footer-credit">
+        Website by <strong>W-Tech</strong> ·
+        <a href="https://w-tech-potfolio.netlify.app" target="_blank">w-tech-potfolio.netlify.app</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="asa.js"></script>
+</body>
+</html>
