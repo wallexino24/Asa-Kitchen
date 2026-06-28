@@ -61,7 +61,7 @@ dateInput.setAttribute('min', today);
 reserveForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  const btn = reserveForm.querySelector('.btn-sage');
+  const btn = reserveForm.querySelector('.btn-gold');
   btn.textContent = 'Confirming…';
   btn.disabled = true;
 
