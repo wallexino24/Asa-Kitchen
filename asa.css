@@ -700,7 +700,7 @@ a   { text-decoration: none; color: inherit; }
 .form-group select option  { background: #1a1200; color: var(--parchment); }
 .form-group textarea       { resize: vertical; }
 
-.full-btn { width: 100%; text-align: center; padding: 1rem; font-size: 0.9rem; }
+.btn-gold { width: 100%; text-align: center; padding: 1rem; font-size: 0.9rem; }
 
 .form-btns {
   display: flex;
@@ -710,6 +710,7 @@ a   { text-decoration: none; color: inherit; }
 .form-btns .btn {
   flex: 1;
   text-align: center;
+  border-radius: 10px;
 }
 .btn-whatsapp {
   background: #25D366;
@@ -859,6 +860,8 @@ a   { text-decoration: none; color: inherit; }
   .hero-eyebrow { font-size: 10px; color: var(--offwhite); }
   .hamburger     { display: flex; }
 
+  .hero { padding-top: 10px; }
+
   .stats-band    { gap: 1.5rem; }
   .stat          { padding: 0.5rem 1rem; }
   .stat-divider  { display: none; }
@@ -871,6 +874,8 @@ a   { text-decoration: none; color: inherit; }
   .g-wide        { grid-column: span 2; }
 
   .form-row      { grid-template-columns: 1fr; }
+  .btn-gold { border-radius: 10px; font-size: 11px; }
+  .btn-whatsapp { border-radius: 10px; display: flex; flex-direction: column; font-size: 11px; }
   .footer-inner  { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }
 }
