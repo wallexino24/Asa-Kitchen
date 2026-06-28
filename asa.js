@@ -97,6 +97,43 @@ reserveForm.addEventListener('submit', (e) => {
 });
 
 
+// ---- WHATSAPP BOOKING BUTTON ----
+// Builds a pre-filled WhatsApp message from the form fields
+// and sets the href on the WhatsApp button dynamically.
+const whatsappBtn = document.getElementById('whatsappBtn');
+
+whatsappBtn.addEventListener('click', () => {
+  const fname    = document.getElementById('fname').value;
+  const lname    = document.getElementById('lname').value;
+  const email    = document.getElementById('email').value;
+  const phone    = document.getElementById('phone').value;
+  const date     = document.getElementById('date').value;
+  const time     = document.getElementById('time').value;
+  const guests   = document.getElementById('guests').value;
+  const occasion = document.getElementById('occasion').value || 'None';
+  const notes    = document.getElementById('notes').value || 'None';
+
+  // Build the message — this is what arrives pre-filled in WhatsApp
+  const message =
+`Hello Áṣà Kitchen! I'd like to make a reservation.
+
+Name: ${fname} ${lname}
+Email: ${email}
+Phone: ${phone}
+Date: ${date}
+Time: ${time}
+Guests: ${guests}
+Occasion: ${occasion}
+Special Requests: ${notes}
+
+Please confirm my booking. Thank you!`;
+
+  // Encode the message for a URL and open WhatsApp
+  const url = `https://wa.me/2349168671007?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
+});
+
+
 // ---- SCROLL FADE-IN ANIMATION ----
 // Adds .fade-in to these elements, then uses IntersectionObserver
 // to add .visible (which triggers the CSS transition) when they enter view.
