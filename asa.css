@@ -702,6 +702,30 @@ a   { text-decoration: none; color: inherit; }
 
 .full-btn { width: 100%; text-align: center; padding: 1rem; font-size: 0.9rem; }
 
+.form-btns {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.form-btns .btn {
+  flex: 1;
+  text-align: center;
+}
+.btn-whatsapp {
+  background: #25D366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.btn-whatsapp:hover {
+  background: #1ebe5d;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(37,211,102,0.35);
+}
+
 .form-success {
   display: none;
   background: rgba(200,134,10,0.15);
